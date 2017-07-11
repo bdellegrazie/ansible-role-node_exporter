@@ -1,0 +1,11 @@
+---
+- name: restart node_exporter
+  become: true
+  become_user: root
+  service:
+    name: node_exporter
+    state: "{{ (node_exporter_service_state != 'stopped') | ternary('restarted', 'stopped') }}"
+    use: "{{ prometheus_exporter_service_mgr }}"
+  when: node_exporter_service_notify and (
+    _node_exporter_service_state is not defined or
+    not ( _node_exporter_service_state | changed ))

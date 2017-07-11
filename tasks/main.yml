@@ -1,0 +1,99 @@
+---
+- name: group
+  become: true
+  become_user: root
+  group:
+    name: "{{ node_exporter_group }}"
+    state: present
+    system: true
+
+- name: user
+  become: true
+  become_user: root
+  user:
+    name: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+    home: "{{ node_exporter_home }}"
+    createhome: false
+    shell: /sbin/nologin
+    comment: node_exporter
+    state: present
+    system: true
+
+- name: home
+  become: true
+  become_user: root
+  file:
+    path: "{{ node_exporter_home }}"
+    owner: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+    mode: "u=rwx,g=rx,o="
+    state: directory
+
+- name: download tarball
+  become: true
+  become_user: root
+  get_url:
+    url: "{{ node_exporter_tarball_url }}"
+    checksum: "{{ node_exporter_tarball_checksum }}"
+    dest: "{{ prometheus_exporter_dist_dir }}/{{ node_exporter_signature }}.tar.gz"
+    owner: root
+    group: root
+    mode: "u=rw,go=r"
+
+- name: untar tarball
+  become: true
+  become_user: root
+  unarchive:
+    src: "{{ prometheus_exporter_dist_dir }}/{{ node_exporter_signature }}.tar.gz"
+    dest: "{{ prometheus_exporter_dist_dir }}"
+    owner: root
+    group: root
+    mode: "u=rwx,go=rx"
+    creates: "{{ node_exporter_dist_dir }}/node_exporter"
+
+- name: symlink
+  become: true
+  become_user: root
+  file:
+    src: "{{ node_exporter_dist_dir }}/node_exporter"
+    path: "{{ prometheus_exporter_dir }}/node_exporter"
+    owner: root
+    group: root
+    force: true
+    mode: "ugo=rwx"
+    state: link
+  notify: restart node_exporter
+
+- name: config
+  become: true
+  become_user: root
+  template:
+    src: "node_exporter.default.conf.j2"
+    dest: "/etc/default/node_exporter"
+    owner: root
+    group: root
+    mode: "u=rw,go=r"
+  notify: restart node_exporter
+
+- name: install service
+  include: service-{{ prometheus_exporter_service_mgr }}.yml
+
+- name: Service Enabled
+  become: true
+  become_user: root
+  service:
+    name: node_exporter
+    enabled: "{{ node_exporter_service_enable }}"
+    use: "{{ prometheus_exporter_service_mgr }}"
+  when: node_exporter_service_manage
+
+- name: Service State
+  become: true
+  become_user: root
+  service:
+    name: node_exporter
+    state: "{{ node_exporter_service_state }}"
+    use: "{{ prometheus_exporter_service_mgr }}"
+  register: _node_exporter_service_state
+  when: node_exporter_service_manage

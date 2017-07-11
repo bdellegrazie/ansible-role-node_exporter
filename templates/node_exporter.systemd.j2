@@ -1,0 +1,16 @@
+[Unit]
+Description=node_exporter - Exporter for machine metrics.
+Documentation=https://github.com/prometheus/node_exporter
+After=network.target
+
+[Service]
+User={{ node_exporter_user }}
+Group={{ node_exporter_group }}
+EnvironmentFile={{ node_exporter_config_file }}
+ExecStart={{ node_exporter_program }} $OPTIONS
+
+SyslogIdentifier=node_exporter
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
