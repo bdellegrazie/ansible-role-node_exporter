@@ -28,7 +28,7 @@ Other variables are in defaults/main.yml
 
     - hosts: all
       roles:
-        - { role: ansible-role-node_exporter }
+        - { role: bdellegrazie.node_exporter }
 
 # License
 
