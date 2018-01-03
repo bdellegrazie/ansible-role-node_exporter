@@ -1,4 +1,14 @@
 ---
+
+- name: create logdir
+  become: true
+  file:
+    path: "{{ node_exporter_log_path }}"
+    owner: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+    state: directory
+    mode: 0750
+  
 - name: upstart service
   become: true
   template:
