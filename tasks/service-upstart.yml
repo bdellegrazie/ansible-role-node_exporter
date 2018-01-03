@@ -1,5 +1,4 @@
 ---
-
 - name: create logdir
   become: true
   file:
@@ -8,7 +7,7 @@
     group: "{{ node_exporter_group }}"
     state: directory
     mode: 0750
-  
+
 - name: upstart service
   become: true
   template:
