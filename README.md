@@ -12,8 +12,8 @@ Requires Ansible role `bdellegrazie.ansible-role-prometheus_exporter`
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `node_exporter_version`| Version of the exporter to use | `0.14.0` |
-| `node_exporter_tarball_checksum` | checksum of the tarball | sha1 checksum of 0.14.0 tarball |
+| `node_exporter_version`| Version of the exporter to use | `0.15.2` |
+| `node_exporter_tarball_checksum` | checksum of the tarball | sha1 checksum of 0.15.2 tarball |
 | `node_exporter_options`| Command line options | [] |
 
 The following option is always provided: `-collector.textfile.directory /var/lib/node_exporter`
