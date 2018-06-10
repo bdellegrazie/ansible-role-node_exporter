@@ -2,8 +2,8 @@
 node_exporter_user:   node_exporter
 node_exporter_group:  node_exporter
 
-node_exporter_version: "0.15.2"
-node_exporter_tarball_checksum: "sha1:3b8d048c306dfec002d61819fd39c5d066ca9f01"
+node_exporter_version: "0.16.0"
+node_exporter_tarball_checksum: "sha1:13c8f937fb9ee4360afa8a447f4905c7030bbe4e"
 node_exporter_platform_suffix: "linux-amd64"
 
 node_exporter_signature: "node_exporter-{{ node_exporter_version }}.{{ node_exporter_platform_suffix }}"
