@@ -1,6 +1,8 @@
 ---
 node_exporter_user:   node_exporter
+node_exporter_user_manage: true
 node_exporter_group:  node_exporter
+node_exporter_group_manage: true
 
 node_exporter_version: "0.16.0"
 node_exporter_tarball_checksum: "sha1:13c8f937fb9ee4360afa8a447f4905c7030bbe4e"
@@ -11,6 +13,7 @@ node_exporter_dist_dir: "{{ prometheus_exporter_dist_dir }}/{{ node_exporter_sig
 node_exporter_tarball_url: "https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/{{ node_exporter_signature }}.tar.gz"
 node_exporter_program: "{{ prometheus_exporter_dir }}/node_exporter"
 node_exporter_home: "/var/lib/node_exporter"
+node_exporter_home_manage: true
 node_exporter_options: []
 
 node_exporter_config_file: /etc/default/node_exporter
