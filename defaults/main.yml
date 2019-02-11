@@ -1,11 +1,11 @@
 ---
-node_exporter_user:   node_exporter
+node_exporter_user: node_exporter
 node_exporter_user_manage: true
-node_exporter_group:  node_exporter
+node_exporter_group: node_exporter
 node_exporter_group_manage: true
 
-node_exporter_version: "0.16.0"
-node_exporter_tarball_checksum: "sha1:13c8f937fb9ee4360afa8a447f4905c7030bbe4e"
+node_exporter_version: "0.17.0"
+node_exporter_tarball_checksum: "sha1:ab88276c82d1becd12eb3971c907020bdecdefc3"
 node_exporter_platform_suffix: "linux-amd64"
 
 node_exporter_signature: "node_exporter-{{ node_exporter_version }}.{{ node_exporter_platform_suffix }}"
