@@ -1,0 +1,19 @@
+---
+port:
+  tcp6:9100:
+    listening: true
+
+process:
+  node_exporter:
+    running: true
+
+service:
+  node_exporter:
+    enabled: true
+    running: true
+
+user:
+  node_exporter:
+    exists: true
+    home: /var/lib/node_exporter
+    shell: /sbin/nologin
