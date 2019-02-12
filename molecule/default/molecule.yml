@@ -26,8 +26,6 @@ platforms:
       - "/run"
   - name: "debian9"
     image: "bdellegrazie/debian-systemd:9"
-    groups:
-      - python_3
     pull: true
     pre_build_image: true
     command: "/sbin/init"
@@ -42,8 +40,6 @@ platforms:
       - "/tmp"
   - name: "ubuntu1804"
     image: "bdellegrazie/ubuntu-systemd:18.04"
-    groups:
-      - python_3
     pull: true
     pre_build_image: true
     command: "/sbin/init --log-target=journal"
@@ -68,10 +64,6 @@ provisioner:
       gather_timeout: 20
   lint:
     name: ansible-lint
-  inventory:
-    group_vars:
-      python_3:
-        ansible_python_interpreter: /usr/bin/python3
 scenario:
   name: default
 verifier:
