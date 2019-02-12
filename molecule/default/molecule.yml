@@ -12,9 +12,9 @@ platforms:
     pre_build_image: true
     command: "/sbin/init"
   - name: "centos7"
-    image: "centos/systemd:latest"
+    image: "bdellegrazie/centos-systemd:7"
     pull: true
-    pre_build_image: false
+    pre_build_image: true
     command: "/usr/sbin/init"
     # https://github.com/ansible/ansible/issues/18692
     kill_signal: "RTMIN+3"
