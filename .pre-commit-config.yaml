@@ -10,15 +10,15 @@ repos:
       - id: check-json
       - id: end-of-file-fixer
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.14.0
+    rev: v1.15.0
     hooks:
       - id: yamllint
   - repo: https://github.com/jumanjihouse/pre-commit-hooks.git
-    rev: 1.10.3
+    rev: 1.11.0
     hooks:
       - id: rubocop
   - repo: https://github.com/willthames/ansible-lint.git
-    rev: v4.0.1
+    rev: v4.1.0
     hooks:
       - id: ansible-lint
         files: \.(yaml|yml)$
