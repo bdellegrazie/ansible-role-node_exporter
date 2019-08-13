@@ -13,10 +13,6 @@ repos:
     rev: v1.17.0
     hooks:
       - id: yamllint
-  - repo: https://github.com/jumanjihouse/pre-commit-hooks.git
-    rev: 1.11.0
-    hooks:
-      - id: rubocop
   - repo: https://github.com/ansible/ansible-lint.git
     rev: v4.1.0
     hooks:
