@@ -6,7 +6,7 @@
     owner: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
     state: directory
-    mode: 0750
+    mode: "u=rwx,g=rx,o="
 
 - name: upstart service
   become: true
