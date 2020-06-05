@@ -28,6 +28,5 @@ ansible.cfg
 .kitchen/
 .kitchen.local.yml
 
-# Ruby
-.bundle/
-vendor/
+# direnv
+.direnv/

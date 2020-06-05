@@ -6,6 +6,7 @@
       apt:
         update_cache: true
       when: (ansible_os_family | lower) == 'debian'
+      ignore_errors: true  # Debian snapshot repositories are sometimes out-of-date
 
     - name: Update package cache (Redhat)
       become: true
