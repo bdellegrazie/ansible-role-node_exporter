@@ -7,13 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 ### Changed
-- Update to Ansible 2.9.9 - no actual change
 ### Deprecated
 ### Removed
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.3.0...HEAD
+[v2.4.0] 2020-06-17
+### Changed
+- Update to node_exporter v1.0.1
+- Update to Ansible 2.9.9 - no actual change
+
+[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.4.0...HEAD
+[v2.4.0]: https://github.com/bdellegrazie/ansible-role-node_exporter/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/bdellegrazie/ansible-role-node_exporter/compare/v2.2.2...v2.3.0
 [v2.2.2]: https://github.com/bdellegrazie/ansible-role-node_exporter/compare/v2.2.1...v2.2.2
 [v2.2.1]: https://github.com/bdellegrazie/ansible-role-node_exporter/compare/v2.2.0...v2.2.1
