@@ -27,6 +27,9 @@
       file:
         path: "{{ goss_test_directory }}"
         state: directory
+        owner: root
+        group: root
+        mode: "u=rwx,go=rx"
 
     - name: Find Goss tests on localhost
       find:
@@ -51,6 +54,9 @@
       copy:
         src: "{{ item.path }}"
         dest: "{{ goss_test_directory }}/{{ item.path | basename }}"
+        owner: root
+        group: root
+        mode: "u=rw,g=r,o="
       with_items:
         - "{{ test_files.files }}"
       loop_control:
